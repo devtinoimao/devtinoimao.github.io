@@ -1,35 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>YourGPT Chatbot</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script>
-      // Function to speak chatbot responses
-      function speakText(text) {
-        if ('speechSynthesis' in window) {
-          const utterance = new SpeechSynthesisUtterance(text);
-          utterance.lang = 'en-US'; // Set language
-          window.speechSynthesis.speak(utterance);
-        } else {
-          console.error("Browser doesn't support TTS");
-        }
-      }
+<style>
+  html, body, #video-container {
+    margin: 0; padding: 0;
+    width: 100vw; height: 100vh;
+    overflow: hidden;
+  }
+  #video-container iframe {
+    width: 100%; height: 100%;
+    border: none;
+  }
+</style>
 
-      // Listen for messages from the iframe (YourGPT chatbot)
-      window.addEventListener('message', (event) => {
-        if (event.data.type === 'CHATBOT_RESPONSE') {
-          speakText(event.data.text);
-        }
-      });
-    </script>
-  </head>
-  <body style="margin: 0;">
-    <iframe 
-      id="chatbotIframe"
-      src="https://widget.yourgpt.ai/e0d0251a-5c01-4664-82d6-18b783c9bb68" 
-      width="100%" height="100%" 
-      style="border: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;"
-      allow="microphone"
-    ></iframe>
-  </body>
-</html>
+<div id="video-container">
+  <iframe src="https://www.youtube.com/embed/hOd7vsGXMjE" allowfullscreen></iframe>
+</div>
